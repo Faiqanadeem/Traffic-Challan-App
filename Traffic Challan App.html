@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic Challan</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <h3 class="text-center mb-4">🚨 Liberty Chowk - Traffic Challan</h3>
+
+        <form id="challanForm">
+
+            <!-- Driver Name -->
+            <div class="mb-3">
+                <label for="driverName" class="form-label">Driver Name</label>
+                <input type="text" id="driverName" class="form-control"required>
+            </div>
+
+            <!-- Vehicle Number -->
+            <div class="mb-3">
+                <label for="vehicleNumber" class="form-label">Vehicle Number</label>
+                <input type="text" id="vehicleNumber" class="form-control"required>
+            </div>
+
+            <!-- Violation Type -->
+            <div class="mb-3">
+                <label for="violationType" class="form-label">Violation Type</label>
+                <select id="violationType" class="form-select">
+                    <option value="">Select Violation</option>
+                    <option>No Helmet</option>
+                    <option>Signal Break</option>
+                    <option>One-Wheeling</option>
+                </select>
+            </div>
+
+            <!-- Price (Pro Way - Input Group) -->
+            <div class="mb-3">
+                <label class="form-label">Fine Amount</label>
+                <div class="input-group">
+                    <span class="input-group-text">Rs.</span>
+                    <input type="number" id="priceInput" class="form-control">
+                </div>
+            </div>
+
+            <!-- Funny Button -->
+            <div class="d-grid">
+                <button type="button" class="btn btn-secondary" disabled>
+                    Maafi De Dein Sir
+                </button>
+            </div>
+             <!-- issue Button -->
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary" abled>
+                   Challan Issue
+                </button>
+            </div>
+<!-- BootStrap JS -->
+<script>
+    const violationSelect = document.getElementById("violationType");
+const fineInput = document.getElementById("fineAmount");
+
+// Store all fines in one place
+const fines = {
+  helmet: 1000,
+  signal: 5000,
+  onewheel: 10000
+};
+
+violationSelect.addEventListener("change", function () {
+
+  // Set fine automatically
+  fineInput.value = fines[this.value] || "";
+
+  // Make red only if one-wheel
+  fineInput.classList.toggle("bg-danger", this.value === "onewheel");
+  fineInput.classList.toggle("text-white", this.value === "onewheel");
+
+});
+</script>
+
+<!-- /BootStrap -->
+        </form>
+    </div>
+</div>
+
+<script>
+
+// Get elements
+const violationType = document.getElementById("violationType");
+const priceInput = document.getElementById("priceInput");
+const driverName = document.getElementById("driverName");
+const vehicleNumber = document.getElementById("vehicleNumber");
+
+// Change price color if One-Wheeling selected
+violationType.addEventListener("change", function() {
+
+    if (violationType.value === "One-Wheeling") {
+        priceInput.classList.add("bg-danger", "text-white");
+    } else {
+        priceInput.classList.remove("bg-danger", "text-white");
+    }
+
+});
+// Change price color if  No Helmet selected
+violationType.addEventListener("change", function() {
+
+    if (violationType.value === "No Helmet") {
+        priceInput.classList.add("bg-primary", "text-white");
+    } else {
+        priceInput.classList.remove("bg-primary", "text-white");
+    }
+
+});
+// Change price color if  Signal Break selected
+violationType.addEventListener("change", function() {
+
+    if (violationType.value === "Signal Break) {
+        priceInput.classList.add("bg-Warning", "text-white");
+    } else {
+        priceInput.classList.remove("bg-Warning", "text-white");
+    }
+
+});
+
+// Simple validation on blur
+driverName.addEventListener("blur", function() {
+
+    if (driverName.value === "") {
+        driverName.classList.add("is-invalid");
+        driverName.classList.remove("is-valid");
+    } else {
+        driverName.classList.add("is-valid");
+        driverName.classList.remove("is-invalid");
+    }
+
+});
+
+vehicleNumber.addEventListener("blur", function() {
+
+    if (vehicleNumber.value.length < 5) {
+        vehicleNumber.classList.add("is-invalid");
+        vehicleNumber.classList.remove("is-valid");
+    } else {
+        vehicleNumber.classList.add("is-valid");
+        vehicleNumber.classList.remove("is-invalid");
+    }
+
+});
+
+</script>
+
+</body>
+</html> 
