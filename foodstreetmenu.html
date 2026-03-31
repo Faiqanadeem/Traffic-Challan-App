@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Street Menu</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8e1;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #d84315;
+    }
+
+    /* FLEX CONTAINER */
+    .menu {
+      display: flex;           /* Flex container */
+      flex-wrap: wrap;         /* Allow items to move to next line */
+      justify-content: center; /* Center items horizontally */
+      gap: 15px;               /* Space between items */
+      padding: 20px;
+    }
+
+    /* FLEX ITEMS */
+    .item {
+      flex-basis: 250px;       /* Each item takes 250px before wrapping */
+      background-color: #ffcc80;
+      padding: 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+      cursor: pointer;
+      background-color: #ffa726;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍔 Food Street Menu</h1>
+
+  <div class="menu">
+    <div class="item">🍔 Burger</div>
+    <div class="item">🍕 Pizza</div>
+    <div class="item">🌭 Hot Dog</div>
+    <div class="item">🍟 Fries</div>
+    <div class="item">🥪 Sandwich</div>
+    <div class="item">🌮 Taco</div>
+    <div class="item">🍗 Chicken Wings</div>
+    <div class="item">🥤 Cold Drink</div>
+  </div>
+
+</body>
+</html>
