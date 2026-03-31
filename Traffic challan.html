@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Traffic Warden Challan App</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #fff9c4;
+    }
+
+    .danger {
+      background-color: #ffcccc !important;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">🚦 Traffic Challan App</h2>
+
+  <form id="challanForm">
+
+    <!-- Driver Name -->
+    <div class="mb-3">
+      <label class="form-label">Driver Name</label>
+      <input type="text" id="name" class="form-control" placeholder="Enter Driver Name" required>
+    </div>
+
+    <!-- Vehicle Number -->
+    <div class="mb-3">
+      <label class="form-label">Vehicle Number</label>
+      <input type="text" id="vehicle" class="form-control" placeholder="LEA-1234" required>
+    </div>
+
+    <!-- Violation Type -->
+    <div class="mb-3">
+      <label class="form-label">Violation Type</label>
+      <select id="violation" class="form-select" required>
+        <option value="">Select Violation</option>
+        <option value="helmet">No Helmet</option>
+        <option value="signal">Signal Break</option>
+        <option value="onewheel">One-Wheeling</option>
+      </select>
+    </div>
+
+    <!-- Price -->
+    <div class="mb-3">
+      <label class="form-label">Fine Amount</label>
+      <div class="input-group">
+        <span class="input-group-text">Rs.</span>
+        <input type="number" id="price" class="form-control" placeholder="Enter amount" required>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <button type="submit" class="btn btn-success">Issue Challan</button>
+
+    <button type="button" class="btn btn-danger ms-3" disabled>
+      Maafi De Dein Sir 😭
+    </button>
+
+  </form>
+</div>
+
+<script>
+  const violation = document.getElementById("violation");
+  const price = document.getElementById("price");
+  const form = document.getElementById("challanForm");
+
+  // Change color if dangerous violation
+  violation.addEventListener("change", function () {
+    if (this.value === "onewheel") {
+      price.classList.add("danger");
+    } else {
+      price.classList.remove("danger");
+    }
+  });
+
+  // Submit form
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // stop page reload
+
+    const name = document.getElementById("name").value;
+    const vehicle = document.getElementById("vehicle").value;
+    const fine = price.value;
+
+    alert(
+      "🚨 Challan Issued!\n\n" +
+      "Driver: " + name +
+      "\nVehicle: " + vehicle +
+      "\nFine: Rs. " + fine
+    );
+
+    form.reset(); // clear form
+    price.classList.remove("danger");
+  });
+</script>
+
+</body>
+</html>

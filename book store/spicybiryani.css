@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spicy Biryani Card</title>
+  <style>
+    /* Only style this card */
+    .recipe-card {
+      border: 2px solid red;    /* red border for visibility */
+      padding: 20px;            /* space inside the border */
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 50px auto;        /* center on page */
+      background-color: #fff8f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .recipe-card h2 {
+      margin: 0 0 10px 0;
+      color: darkred;
+    }
+
+    .recipe-card p {
+      margin: 0;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Spicy Biryani card -->
+  <div class="recipe-card">
+    <h2>Spicy Biryani</h2>
+    <p>Rich, aromatic rice with tender chicken and bold spices.</p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Mood Lighting Widget</title>
+
+<style>
+
+body{
+text-align:center;
+padding-top:100px;
+font-family:Arial;
+transition: background-color 0.4s;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Mood Lighting Widget</h2>
+
+<button id="colorBtn">Change Mood Light</button>
+
+<script>
+
+function createMoodWidget(){
+
+// Color list is PRIVATE (not global)
+const colors = ["lightblue","lightgreen","lightcoral","lightyellow","lavender"];
+
+let index = 0;
+
+document.getElementById("colorBtn").addEventListener("click",function(){
+
+document.body.style.backgroundColor = colors[index];
+
+index++;
+
+if(index === colors.length){
+index = 0;
+}
+
+});
+
+}
+
+// initialize widget
+createMoodWidget();
+
+</script>
+
+</body>
+
+</html>
+```

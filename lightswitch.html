@@ -1,0 +1,59 @@
+```html id="k9txoa"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Digital Reading Room</title>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-white text-black flex items-center justify-center h-screen">
+
+<div class="text-center">
+
+<h1 class="text-3xl font-bold mb-6">Digital Reading Room</h1>
+
+<p class="mb-6">
+Welcome to the reading room. Click the button to change the lights.
+</p>
+
+<button id="lightBtn"
+class="bg-blue-500 text-white px-6 py-2 rounded">
+Turn Off Lights
+</button>
+
+</div>
+
+<script>
+
+let lightsOn = true; // state variable
+
+let button = document.getElementById("lightBtn");
+
+button.addEventListener("click", function(){
+
+document.body.classList.toggle("bg-slate-900");
+document.body.classList.toggle("text-white");
+
+if(lightsOn){
+
+button.innerText = "Turn On Lights";
+lightsOn = false;
+
+}else{
+
+button.innerText = "Turn Off Lights";
+lightsOn = true;
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
+```

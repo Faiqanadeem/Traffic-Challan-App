@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Warden Challan App</title>
+
+    <!-- ✅ Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* 🔴 Red background when One-Wheeling selected */
+        .danger-price {
+            background-color: #ffcccc;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+
+        <h2 class="text-center mb-4">🚓 Challan Form</h2>
+
+        <!-- Driver Name -->
+        <div class="mb-3">
+            <label class="form-label">Driver Name</label>
+            <input type="text" class="form-control" placeholder="Enter name">
+        </div>
+
+        <!-- Vehicle Number -->
+        <div class="mb-3">
+            <label class="form-label">Vehicle Number</label>
+            <input type="text" class="form-control" placeholder="ABC-123">
+        </div>
+
+        <!-- Violation Type -->
+        <div class="mb-3">
+            <label class="form-label">Violation Type</label>
+            <select class="form-select" id="violation">
+                <option value="">Select violation</option>
+                <option value="helmet">No Helmet</option>
+                <option value="signal">Signal Break</option>
+                <option value="onewheel">One-Wheeling</option>
+            </select>
+        </div>
+
+        <!-- Price with Rs (Bootstrap Input Group) -->
+        <div class="mb-3">
+            <label class="form-label">Fine Amount</label>
+            <div class="input-group">
+                <span class="input-group-text">Rs.</span>
+                <input type="number" class="form-control" id="price" placeholder="Enter amount">
+            </div>
+        </div>
+
+        <!-- Funny Disabled Button -->
+        <div class="d-grid">
+            <button class="btn btn-danger" disabled>
+                Maafi De Dein Sir 😭
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- ✅ JavaScript -->
+<script>
+    const violation = document.getElementById("violation");
+    const price = document.getElementById("price");
+
+    violation.addEventListener("change", function () {
+
+        // Reset class
+        price.classList.remove("danger-price");
+
+        if (this.value === "onewheel") {
+            price.value = 5000;
+            price.classList.add("danger-price"); // 🔴 red effect
+        } 
+        else if (this.value === "helmet") {
+            price.value = 500;
+        } 
+        else if (this.value === "signal") {
+            price.value = 1000;
+        } 
+        else {
+            price.value = "";
+        }
+    });
+</script>
+
+</body>
+</html>

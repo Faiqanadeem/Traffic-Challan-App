@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Food Blog Card</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+<div class="recipe-card border-2 border-red-500 p-6 w-80 bg-white rounded-lg shadow-md text-center">
+    <h2 class="text-2xl font-bold text-red-600 mb-3">
+        Spicy Biryani
+    </h2>
+    <p class="text-gray-700">
+        Spicy Biryani is a delicious rice dish made with basmati rice,
+        chicken and aromatic spices. It is one of the most popular
+        dishes loved by food lovers.
+    </p>
+</div>
+</body>
+</html>
